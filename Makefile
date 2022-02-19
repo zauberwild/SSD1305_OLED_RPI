@@ -1,6 +1,6 @@
 # Gavin lyons 06-2021
-# Makefile to install library for SSD1306_OLED library.
-# URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+# Makefile to install library for SSD1305_OLED library.
+# URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 # Library is installed to /usr/lib and include files are placed at /usr/include.
 # Uninstall and clean options provided
 # Options
@@ -13,7 +13,7 @@ PREFIX=/usr
 # where to place the libray
 LIBDIR=$(PREFIX)/lib
 # library name
-LIB=libSSD1306_OLED_RPI
+LIB=libSSD1305_OLED_RPI
 # shared library name
 LIBNAME=$(LIB).so.1.0
 
@@ -29,7 +29,7 @@ LDFLAGS= -lbcm2835
 
 # make all
 # reinstall the library after each recompilation
-all: pre-build SSD1306_OLED_RPI install
+all: pre-build SSD1305_OLED_RPI install
 
 pre-build:
 	@echo
@@ -39,7 +39,7 @@ pre-build:
 	$(MD) -vp $(OBJ)
 
 # Make the library
-SSD1306_OLED_RPI: $(OBJS)
+SSD1305_OLED_RPI: $(OBJS)
 	$(CXX) -shared -Wl,-soname,$(LIB).so.1 $(CCFLAGS) $(LDFLAGS)  -o ${LIBNAME} $^
 
 # Library parts
@@ -61,10 +61,10 @@ install:
 	@echo
 	@echo "[INSTALL HEADERS]"
 	@if ( test ! -d $(PREFIX)/include ) ; then mkdir -p $(PREFIX)/include ; fi
-	@cp -vf  include/SSD1306_OLED.h $(PREFIX)/include
-	@cp -vf  include/SSD1306_OLED_graphics.h $(PREFIX)/include
-	@cp -vf  include/SSD1306_OLED_Print.h $(PREFIX)/include
-	@cp -vf  include/SSD1306_OLED_font.h $(PREFIX)/include
+	@cp -vf  include/SSD1305_OLED.h $(PREFIX)/include
+	@cp -vf  include/SSD1305_OLED_graphics.h $(PREFIX)/include
+	@cp -vf  include/SSD1305_OLED_Print.h $(PREFIX)/include
+	@cp -vf  include/SSD1305_OLED_font.h $(PREFIX)/include
 	@echo "[DONE!]"
 
 # Uninstall the library
@@ -74,10 +74,10 @@ uninstall:
 	@rm -vf ${LIBDIR}/${LIB}.*
 
 	@echo "[UNINSTALL HEADERS]"
-	@rm -rvf  $(PREFIX)/include/SSD1306_OLED.h
-	@rm -rvf  $(PREFIX)/include/SSD1306_OLED_graphics.h
-	@rm -rvf  $(PREFIX)/include/SSD1306_OLED_Print.h
-	@rm -rvf  $(PREFIX)/include/SSD1306_OLED_font.h
+	@rm -rvf  $(PREFIX)/include/SSD1305_OLED.h
+	@rm -rvf  $(PREFIX)/include/SSD1305_OLED_graphics.h
+	@rm -rvf  $(PREFIX)/include/SSD1305_OLED_Print.h
+	@rm -rvf  $(PREFIX)/include/SSD1305_OLED_font.h
 	@echo "[DONE!]"
 
 # clear build files

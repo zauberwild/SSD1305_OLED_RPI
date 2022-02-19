@@ -1,20 +1,20 @@
 
 // Example file name : main.cpp
 // Description:
-// Test file for SSD1306_OLED library, showing  hello world
-// URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+// Test file for SSD1305_OLED library, showing  hello world
+// URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 // *****************************
 
 
 #include <bcm2835.h>
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED.h"
 #include <time.h>
 #include <stdio.h>
 
 #define myOLEDwidth  128
 #define myOLEDheight 64
 
-SSD1306 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object 
+SSD1305 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object 
 
 // =============== Function prototype ================
 void SetupTest(void);

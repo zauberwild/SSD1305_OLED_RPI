@@ -1,5 +1,19 @@
+# Fork - SSD1305 OLED RPI
 
-![ OLED ](https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI/blob/main/extras/image/device.jpg)
+This is a fork of the [SSD1306 OLED library](https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI) by [gavinlyonsrepo](https://github.com/gavinlyonsrepo).
+
+## Changes made
+
+The changes I made are based on this [Issue](https://github.com/rm-hull/luma.oled/issues/309) from a [Python library](https://github.com/rm-hull/luma.oled) for the SSD1306 chip.
+
+Basically what I did was changing were some commands in the `init`-method and and changed sometinh that is referred to as "colstart" and "colend" in the issue from the lumo-oled repo. This lets the display display things properly. 
+
+I only tested the library with a 128x32 display, which means that I can't guarantee for it to work with displays for other dimensions. Also I noticed that the scrolling functionality might have some issues, and there might be some more problems with features that I haven't tested yet. However, so far it seems to work nicely to fit my purpose.
+
+
+
+---
+
 
 Table of contents
 ---------------------------
@@ -13,17 +27,18 @@ Table of contents
 
 Overview
 --------------------
-* Name : SSD1306_OLED_RPI
+* Name : SSD1305_OLED_RPI
 * Description :
 
 0. Library to support the I2C 128X64 OLED Display Module
-   driven by the SSD1306 controller for the Raspberry PI.
+   driven by the SSD1305 controller for the Raspberry PI.
 1. Dynamic install-able system level Raspberry Pi C++ library.
-2. Inverse color, rotate, sleep, scroll and contrast control.
+2. Inverse color, rotate, sleep, and scroll contrast control.
 3. Default font is Extended ASCII, scalable font.
-4. 5 other fonts included.
+4. 4 other fonts included.
 5. Graphics class included.
 6. Bitmaps supported.
+100. *not all fatures completely tested on this fork though, but we should be fine*
 7. Hardware I2C using bcm2835 library
 8. Also tested on 128X32 display size. Should work for 96X16 display size.
 9. Dependency: bcm2835 Library
@@ -35,6 +50,8 @@ Overview
 	3. Raspbian 9.13 stretch OS
 	4. bcm2835 Library 1.68 
 
+*I did my testing on a Raspberry Pi 400, with a similar compiler and the bcm283 library*
+
 
 Installation
 ------------------------------
@@ -45,19 +62,19 @@ Installation
 	* The bcm2835 library is a dependency and provides I2C bus, delays and GPIO control.
 	* Install the C libraries of bcm2835, [Installation instructions here](http://www.airspayce.com/mikem/bcm2835/)
 
-3. Download the SSD1306_OLED_RPI library 
+3. Download the SSD1305_OLED_RPI library 
 	* Open a Terminal in a folder where you want to download,build & test library
 	* Run following command to download from github.
-    
+   
 ```sh
-curl -sL https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI/archive/1.2.tar.gz | tar xz
+curl -sL https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI/archive/1.2.tar.gz | tar xz
 ```
 
 4. Run "make" to run the makefile in repo base folder to install library, it will be 
     installed to usr/lib and usr/include
     
 ```sh
-cd SSD1306_OLED_RPI-1.2
+cd SSD1305_OLED_RPI-1.2
 sudo make
 ```
 
@@ -86,7 +103,7 @@ Hardware
 
 Connections as per manufacturers diagram.
 
-![ wiring ](https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI/blob/main/extras/image/wiring.jpg)
+![ wiring ](https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI/blob/main/extras/image/wiring.jpg)
 
 Features
 -------------------------
@@ -133,4 +150,4 @@ Output
 
 Output of example file "CLOCK_DEMO"
 
-![ op ](https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI/blob/main/extras/image/output.jpg)
+![ op ](https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI/blob/main/extras/image/output.jpg)

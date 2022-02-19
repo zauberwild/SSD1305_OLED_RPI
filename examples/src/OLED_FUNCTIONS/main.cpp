@@ -1,7 +1,7 @@
 
 // Example file name : main.cpp
 // Description:
-// Test file for SSD1306_OLED library, showing use of various function
+// Test file for SSD1305_OLED library, showing use of various function
 //
 //  (1) Enable and disable Screen (Sleep mode)
 //  (2) Invert screen color
@@ -9,17 +9,17 @@
 //  (4) Scroll Screen
 //  (5) Rotate 
 //
-// URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+// URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 
 #include <bcm2835.h>
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED.h"
 #include <time.h>
 #include <stdio.h>
 
 #define myOLEDwidth  128
 #define myOLEDheight 64
 
-SSD1306 myOLED(myOLEDwidth ,myOLEDheight);
+SSD1305 myOLED(myOLEDwidth ,myOLEDheight);
 
 // =============== Function prototypes ================
 void setup(void);

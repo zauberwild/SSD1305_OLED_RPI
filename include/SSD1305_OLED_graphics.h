@@ -1,31 +1,31 @@
 /*
-* Project Name: SSD1306_OLED_RPI
-* File: SSD1306_OLED_graphics.h
+* Project Name: SSD1305_OLED_RPI
+* File: SSD1305_OLED_graphics.h
 * Description: header file for the custom graphics functions
 * Author: Gavin Lyons.
-* URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+* URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 */
 
-#ifndef _SSD1306_OLED_GRAPHICS_H
-#define _SSD1306_OLED_GRAPHICS_H
+#ifndef _SSD1305_OLED_GRAPHICS_H
+#define _SSD1305_OLED_GRAPHICS_H
 
-#include "SSD1306_OLED_Print.h"
-#include "SSD1306_OLED_font.h"
+#include "SSD1305_OLED_Print.h"
+#include "SSD1305_OLED_font.h"
 #include <stdio.h>
 #include <stdint.h>
 
 
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
 // Fonts setup
-#define SSD1306_ASCII_OFFSET 0x00
-#define SSD1306_ASCII_OFFSET_SP 0x20 // Starts at Space
-#define SSD1306_ASCII_OFFSET_NUM  0x30 // Starts at number 0
+#define SSD1305_ASCII_OFFSET 0x00
+#define SSD1305_ASCII_OFFSET_SP 0x20 // Starts at Space
+#define SSD1305_ASCII_OFFSET_NUM  0x30 // Starts at number 0
 
-class SSD1306_graphics : public Print{
+class SSD1305_graphics : public Print{
 
  public:
 
-  SSD1306_graphics(int16_t w, int16_t h); // Constructor
+  SSD1305_graphics(int16_t w, int16_t h); // Constructor
 
   // This is defined by the subclass:
   virtual void drawPixel(int16_t x, int16_t y, uint8_t color) = 0;

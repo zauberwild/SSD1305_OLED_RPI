@@ -1,21 +1,21 @@
 
 // Example file name : main.cpp
 // Description: Test file showing "clock demo"
-// URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+// URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 // *****************************
 
 
 #include <bcm2835.h>
 #include <time.h>
 #include <stdio.h>
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED.h"
 #include "Bitmap_test_data.h" // Test data for bitmaps
 
 #define myOLEDwidth  128
-#define myOLEDheight 64
+#define myOLEDheight 32
 uint8_t fullscreenBuffer[1024];
 
-SSD1306 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object
+SSD1305 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object
 
 // =============== Function prototype ================
 int8_t  setup(void);

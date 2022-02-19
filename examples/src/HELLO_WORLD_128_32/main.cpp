@@ -1,19 +1,19 @@
 
 // Example file name : main.cpp
 // Description:
-// Test file SSD1306_OLED lib, showing hello world for a 128by32 screen
-// URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+// Test file SSD1305_OLED lib, showing hello world for a 128by32 screen
+// URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 // *****************************
 
 #include <bcm2835.h>
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED.h"
 #include <time.h>
 #include <stdio.h>
 
 #define myOLEDwidth  128
 #define myOLEDheight 32
 
-SSD1306 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object 
+SSD1305 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object 
 
 // =============== Function prototype ================
 void SetupTest(void);
@@ -43,12 +43,14 @@ void SetupTest()
 	bcm2835_delay(500);
 	printf("OLED Begin\r\n");
 	myOLED.OLEDbegin(); // initialize the OLED
-	myOLED.OLEDFillScreen(0xF0, 0); // splash screen bars
-	bcm2835_delay(1000);
+	// myOLED.OLEDFillScreen(0xF0, 0); // splash screen bars
+	// bcm2835_delay(1000);
 }
 
 void EndTest()
 {
+	myOLED.OLEDclearBuffer();
+	myOLED.OLEDupdate();
 	myOLED.OLEDPowerDown(); //Switch off display
 	bcm2835_close(); // Close the library
 	printf("OLED End\r\n");

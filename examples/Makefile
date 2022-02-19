@@ -1,23 +1,24 @@
 # Gavin lyons 06-2021 
-# Makefile to build example program for SSD1306_OLED_RPI library.
-# URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+# Makefile to build example program for SSD1305_OLED_RPI library.
+# URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 
 # ************************************************
 # User SRC directory Option Section
 # pick on example "SRC" dir and ONE ONLY.
 # Comment out the other 5. #
 
-SRC=src/HELLO_WORLD
+#SRC=src/HELLO_WORLD
 #SRC=src/BITMAP
-#SRC=src/CLOCK_DEMO
+SRC=src/CLOCK_DEMO
 #SRC=src/OLED_FUNCTIONS
 #SRC=src/SPEED_TEST
 #SRC=src/TEXT_GRAPHICS
 #SRC=src/HELLO_WORLD_128_32
+#SRC=src/OWN_TEST
 # ************************************************
 
 CC=g++
-LDFLAGS= -lbcm2835 -lrt -lSSD1306_OLED_RPI 
+LDFLAGS= -lbcm2835 -lrt -lSSD1305_OLED_RPI 
 CFLAGS = -Iinclude/ -c -Wall 
 MD=mkdir
 OBJ=obj

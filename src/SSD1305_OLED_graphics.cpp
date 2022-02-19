@@ -1,16 +1,16 @@
 /*
-* Project Name: SSD1306_OLED
-* File:SSD1306_OLED_graphics.cpp
+* Project Name: SSD1305_OLED
+* File:SSD1305_OLED_graphics.cpp
 * Description: header file for the  graphics functions
 * Author: Gavin Lyons.
-* URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+* URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 */
 
-#include "SSD1306_OLED_graphics.h"
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED_graphics.h"
+#include "SSD1305_OLED.h"
 
 
-SSD1306_graphics::SSD1306_graphics(int16_t w, int16_t h):
+SSD1305_graphics::SSD1305_graphics(int16_t w, int16_t h):
 	WIDTH(w), HEIGHT(h)
 {
 	_width    = WIDTH;
@@ -23,7 +23,7 @@ SSD1306_graphics::SSD1306_graphics(int16_t w, int16_t h):
 }
 
 // Draw a circle outline
-void SSD1306_graphics::drawCircle(int16_t x0, int16_t y0, int16_t r,
+void SSD1305_graphics::drawCircle(int16_t x0, int16_t y0, int16_t r,
 	uint8_t color) {
 	int16_t f = 1 - r;
 	int16_t ddF_x = 1;
@@ -57,7 +57,7 @@ void SSD1306_graphics::drawCircle(int16_t x0, int16_t y0, int16_t r,
 	}
 }
 
-void SSD1306_graphics::drawCircleHelper( int16_t x0, int16_t y0,
+void SSD1305_graphics::drawCircleHelper( int16_t x0, int16_t y0,
 				 int16_t r, uint8_t cornername, uint8_t color) {
 	int16_t f     = 1 - r;
 	int16_t ddF_x = 1;
@@ -93,14 +93,14 @@ void SSD1306_graphics::drawCircleHelper( int16_t x0, int16_t y0,
 	}
 }
 
-void SSD1306_graphics::fillCircle(int16_t x0, int16_t y0, int16_t r,
+void SSD1305_graphics::fillCircle(int16_t x0, int16_t y0, int16_t r,
 					uint8_t color) {
 	drawFastVLine(x0, y0-r, 2*r+1, color);
 	fillCircleHelper(x0, y0, r, 3, 0, color);
 }
 
 // Used to do circles and roundrects
-void SSD1306_graphics::fillCircleHelper(int16_t x0, int16_t y0, int16_t r,
+void SSD1305_graphics::fillCircleHelper(int16_t x0, int16_t y0, int16_t r,
 	uint8_t cornername, int16_t delta, uint8_t color) {
 
 	int16_t f     = 1 - r;
@@ -131,7 +131,7 @@ void SSD1306_graphics::fillCircleHelper(int16_t x0, int16_t y0, int16_t r,
 }
 
 
-void SSD1306_graphics::drawLine(int16_t x0, int16_t y0,
+void SSD1305_graphics::drawLine(int16_t x0, int16_t y0,
 				int16_t x1, int16_t y1,
 				uint8_t color) {
 	int16_t steep = abs(y1 - y0) > abs(x1 - x0);
@@ -173,7 +173,7 @@ void SSD1306_graphics::drawLine(int16_t x0, int16_t y0,
 }
 
 // Draw a rectangle
-void SSD1306_graphics::drawRect(int16_t x, int16_t y,
+void SSD1305_graphics::drawRect(int16_t x, int16_t y,
 				int16_t w, int16_t h,
 				uint8_t color) {
 	drawFastHLine(x, y, w, color);
@@ -182,29 +182,29 @@ void SSD1306_graphics::drawRect(int16_t x, int16_t y,
 	drawFastVLine(x+w-1, y, h, color);
 }
 
-void SSD1306_graphics::drawFastVLine(int16_t x, int16_t y,
+void SSD1305_graphics::drawFastVLine(int16_t x, int16_t y,
 				 int16_t h, uint8_t color) {
 	drawLine(x, y, x, y+h-1, color);
 }
 
-void SSD1306_graphics::drawFastHLine(int16_t x, int16_t y,
+void SSD1305_graphics::drawFastHLine(int16_t x, int16_t y,
 				 int16_t w, uint8_t color) {
 		drawLine(x, y, x+w-1, y, color);
 }
 
-void SSD1306_graphics::fillRect(int16_t x, int16_t y, int16_t w, int16_t h,
+void SSD1305_graphics::fillRect(int16_t x, int16_t y, int16_t w, int16_t h,
 				uint8_t color) {
 	for (int16_t i=x; i<x+w; i++) {
 	drawFastVLine(i, y, h, color);
 	}
 }
 
-void SSD1306_graphics::fillScreen(uint8_t color) {
+void SSD1305_graphics::fillScreen(uint8_t color) {
 	fillRect(0, 0, _width, _height, color);
 }
 
 // Draw a rounded rectangle
-void SSD1306_graphics::drawRoundRect(int16_t x, int16_t y, int16_t w,
+void SSD1305_graphics::drawRoundRect(int16_t x, int16_t y, int16_t w,
 	int16_t h, int16_t r, uint8_t color) {
 	drawFastHLine(x+r  , y    , w-2*r, color); // Top
 	drawFastHLine(x+r  , y+h-1, w-2*r, color); // Bottom
@@ -218,7 +218,7 @@ void SSD1306_graphics::drawRoundRect(int16_t x, int16_t y, int16_t w,
 }
 
 // Fill a rounded rectangle
-void SSD1306_graphics::fillRoundRect(int16_t x, int16_t y, int16_t w,
+void SSD1305_graphics::fillRoundRect(int16_t x, int16_t y, int16_t w,
 				 int16_t h, int16_t r, uint8_t color) {
 	// smarter version
 	fillRect(x+r, y, w-2*r, h, color);
@@ -229,7 +229,7 @@ void SSD1306_graphics::fillRoundRect(int16_t x, int16_t y, int16_t w,
 }
 
 // Draw a triangle
-void SSD1306_graphics::drawTriangle(int16_t x0, int16_t y0,
+void SSD1305_graphics::drawTriangle(int16_t x0, int16_t y0,
 				int16_t x1, int16_t y1,
 				int16_t x2, int16_t y2, uint8_t color) {
 	drawLine(x0, y0, x1, y1, color);
@@ -238,7 +238,7 @@ void SSD1306_graphics::drawTriangle(int16_t x0, int16_t y0,
 }
 
 // Fill a triangle
-void SSD1306_graphics::fillTriangle ( int16_t x0, int16_t y0,
+void SSD1305_graphics::fillTriangle ( int16_t x0, int16_t y0,
 					int16_t x1, int16_t y1,
 					int16_t x2, int16_t y2, uint8_t color) {
 
@@ -304,7 +304,7 @@ void SSD1306_graphics::fillTriangle ( int16_t x0, int16_t y0,
 
 // Desc called form the print class by print functions
 // to draw most data types using polymorphism
-size_t SSD1306_graphics::write(uint8_t c) 
+size_t SSD1305_graphics::write(uint8_t c) 
 {
 	if (_FontNumber < 5)
 	{
@@ -360,7 +360,7 @@ size_t SSD1306_graphics::write(uint8_t c)
 }
 
 // Draw a character to screen 
-void SSD1306_graphics::drawChar(int16_t x, int16_t y, unsigned char c,
+void SSD1305_graphics::drawChar(int16_t x, int16_t y, unsigned char c,
 				uint8_t color, uint8_t bg, uint8_t size) {
 
 	if((x >= _width)            || // Clip right
@@ -419,41 +419,41 @@ void SSD1306_graphics::drawChar(int16_t x, int16_t y, unsigned char c,
 	}
 }
 
-void SSD1306_graphics::setCursor(int16_t x, int16_t y) {
+void SSD1305_graphics::setCursor(int16_t x, int16_t y) {
 	cursor_x = x;
 	cursor_y = y;
 }
 
-void SSD1306_graphics::setTextSize(uint8_t s) {
+void SSD1305_graphics::setTextSize(uint8_t s) {
 	textsize = (s > 0) ? s : 1;
 }
 
-void SSD1306_graphics::setTextColor(uint8_t c) {
+void SSD1305_graphics::setTextColor(uint8_t c) {
 	textcolor = textbgcolor = c;
 }
 
-void SSD1306_graphics::setTextColor(uint8_t c, uint8_t b) {
+void SSD1305_graphics::setTextColor(uint8_t c, uint8_t b) {
 	textcolor   = c;
 	textbgcolor = b; 
 }
 
-void SSD1306_graphics::setTextWrap(bool w) {
+void SSD1305_graphics::setTextWrap(bool w) {
 	wrap = w;
 }
 
-int16_t SSD1306_graphics::width(void) const {
+int16_t SSD1305_graphics::width(void) const {
 	return _width;
 }
  
-int16_t SSD1306_graphics::height(void) const {
+int16_t SSD1305_graphics::height(void) const {
 	return _height;
 }
 
-uint8_t SSD1306_graphics::getRotation(void) const {
+uint8_t SSD1305_graphics::getRotation(void) const {
 	return rotation;
 }
 
-void SSD1306_graphics::setRotation(uint8_t x) {
+void SSD1305_graphics::setRotation(uint8_t x) {
 	rotation = (x & 3);
 	switch(rotation) {
 	 case 0:
@@ -474,7 +474,7 @@ void SSD1306_graphics::setRotation(uint8_t x) {
 // 1=default 2=thick 3=seven segment 4=wide 5=bignums
 // Fonts must be enabled at top of header file.
 
-void SSD1306_graphics::setFontNum(uint8_t FontNumber) 
+void SSD1305_graphics::setFontNum(uint8_t FontNumber) 
 {
 	_FontNumber = FontNumber;
 	
@@ -485,7 +485,7 @@ void SSD1306_graphics::setFontNum(uint8_t FontNumber)
 	
 	enum OLED_Font_offset
 	{
-		FONT_O_EXTEND = SSD1306_ASCII_OFFSET, FONT_O_SP = SSD1306_ASCII_OFFSET_SP, FONT_N_SP = SSD1306_ASCII_OFFSET_NUM
+		FONT_O_EXTEND = SSD1305_ASCII_OFFSET, FONT_O_SP = SSD1305_ASCII_OFFSET_SP, FONT_N_SP = SSD1305_ASCII_OFFSET_NUM
 	}; // font offset in the ASCII table
 	
 	enum OLED_Font_height
@@ -545,7 +545,7 @@ void SSD1306_graphics::setFontNum(uint8_t FontNumber)
 // Param 5: background color
 // Notes for font 5 , 6 only
 
-void SSD1306_graphics::drawCharNumFont(uint8_t x, uint8_t y, uint8_t c, uint8_t color , uint8_t bg) 
+void SSD1305_graphics::drawCharNumFont(uint8_t x, uint8_t y, uint8_t c, uint8_t color , uint8_t bg) 
 {
 	if (_FontNumber < 5)
 	{
@@ -594,7 +594,7 @@ void SSD1306_graphics::drawCharNumFont(uint8_t x, uint8_t y, uint8_t c, uint8_t 
 // Param 5: background color
 // Notes for font 5-6 only 
 
-void SSD1306_graphics::drawTextNumFont(uint8_t x, uint8_t y, 
+void SSD1305_graphics::drawTextNumFont(uint8_t x, uint8_t y, 
 						char *pText, uint8_t color, uint8_t bg) 
 {
 	if (_FontNumber < 5)

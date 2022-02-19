@@ -1,13 +1,13 @@
 /*
-* Project Name: SSD1306_OLED_RPI
-* File: SSD1306_OLED_font.c
+* Project Name: SSD1305_OLED_RPI
+* File: SSD1305_OLED_font.c
 * Description: font file , full ASCII
 * Author: Gavin Lyons.
-* URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+* URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 */
 
-#ifndef _SSD1306_OLED_font_H
-#define _SSD1306_OLED_font_H
+#ifndef _SSD1305_OLED_font_H
+#define _SSD1305_OLED_font_H
 
 #include <stdint.h>
 

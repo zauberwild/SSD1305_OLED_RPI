@@ -1,8 +1,8 @@
 
 // Example file name : main.cpp
 // Description:
-// Test file for SSD1306_OLED library, showing fps frame rate per second
-// URL: https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI
+// Test file for SSD1305_OLED library, showing fps frame rate per second
+// URL: https://github.com/gavinlyonsrepo/SSD1305_OLED_RPI
 //
 // Test data for test file
 // Fps 7 bcm2835_i2c_set_baudrate(100000);
@@ -12,12 +12,12 @@
 #include <time.h>
 #include <stdio.h>
 #include <bcm2835.h>
-#include "SSD1306_OLED.h"
+#include "SSD1305_OLED.h"
 
 #define myOLEDwidth  128
 #define myOLEDheight 64
 
-SSD1306 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object
+SSD1305 myOLED(myOLEDwidth ,myOLEDheight) ; // instantiate  an object
 
 // vars for the test
 uint16_t count  = 0;
@@ -101,7 +101,7 @@ void display_buffer(long currentFramerate, int count)
 	
 	myOLED.OLEDclearBuffer();
 	myOLED.setCursor(0, 0);
-	myOLED.print("SSD1306");
+	myOLED.print("SSD1305");
 
 	myOLED.setCursor(0, 20);
 	myOLED.print("G Lyons");
