@@ -6,7 +6,7 @@ This is a fork of the [SSD1306 OLED library](https://github.com/gavinlyonsrepo/S
 
 The changes I made are based on this [Issue](https://github.com/rm-hull/luma.oled/issues/309) from a [Python library](https://github.com/rm-hull/luma.oled) for the SSD1306 chip.
 
-Basically what I did was changing were some commands in the `init`-method and and changed sometinh that is referred to as "colstart" and "colend" in the issue from the lumo-oled repo. This lets the display display things properly. 
+Basically what I did was changing were some commands in the `init`-method and and changed something that is referred to as "colstart" and "colend" in the issue from the lumo-oled repo. This lets the display display things properly. 
 
 I only tested the library with a 128x32 display, which means that I can't guarantee for it to work with displays for other dimensions. Also I noticed that the scrolling functionality might have some issues, and there might be some more problems with features that I haven't tested yet. However, so far it seems to work nicely to fit my purpose.
 
