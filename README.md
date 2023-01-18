@@ -1,3 +1,5 @@
+***archived, because i'm probably not gonna maintain or update this repo. should be still usable though***
+
 # Fork - SSD1305 OLED RPI
 
 This is a fork of the [SSD1306 OLED library](https://github.com/gavinlyonsrepo/SSD1306_OLED_RPI) by [gavinlyonsrepo](https://github.com/gavinlyonsrepo).
